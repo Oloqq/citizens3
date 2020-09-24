@@ -9,9 +9,11 @@ local config = config
 
 --NOTE all images for map should be exactly 32x32
 
-function Map:new()
+function Map:new(path)
     self.tileSize = config.map.tileSize
     self.planner = nil --will be constructed when the map is loaded
+
+    if path then self:load(path)
 end
 
 function Map:update(dt)

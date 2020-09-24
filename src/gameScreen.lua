@@ -4,13 +4,12 @@ local config = config
 local love = love
 local gr = love.graphics
 
-local Camera = require("src/map/camera")
+local Camera = require("deps/camera")
 local Map = require("src/map/map")
 
 function MainGame:load(args)
 	self.camera = Camera()
-	self.map = Map()
-	self.map:load('maps/maptest')
+	self.map = Map('maps/maptest')
 	print('main game loaded')
 end
 
@@ -27,6 +26,8 @@ function MainGame:draw()
 	self.camera:set()
 	self.map:draw()
 	self.camera:unset()
+
+	-- draw UI here
 end
 
 function MainGame:keypressed(key)
