@@ -13,7 +13,7 @@ function Map:new(path)
     self.tileSize = config.map.tileSize
     self.planner = nil --will be constructed when the map is loaded
 
-    if path then self:load(path)
+    if path then self:load(path) end
 end
 
 function Map:update(dt)
