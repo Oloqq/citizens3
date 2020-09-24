@@ -21,7 +21,7 @@ function MainMenu:draw()
 end
 
 function MainMenu:keypressed(key)
-	setScreen('game')
+	-- setScreen('game')
 end
 
 return MainMenu

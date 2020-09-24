@@ -1,7 +1,7 @@
 local MapLoader = Object:extend()
 local Tile = require("src/map/tile")
 
-local fileTool = fileTool
+local fileTool = require("deps/fileFun")
 local config = config
 local cm = config.map
 local cd = config.debug

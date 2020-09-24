@@ -85,7 +85,6 @@ ScreenManager.screens = {}
 ScreenManager.loaded = {}
 ScreenManager.curr = nil
 
--- {...} will be passsed to load function
 function ScreenManager.setScreen(id, loadArgs, exitArgs, pause)
 	local ret = nil
 	pause = pause or false
