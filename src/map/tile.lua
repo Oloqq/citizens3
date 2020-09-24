@@ -3,8 +3,8 @@ local config = config
 local Tile = Object:extend()
 
 function Tile:new(code)
-    self.code = code or love.errhand("Tile code = nil")
-    t = config.map.tiles[code] or love.errhand("Tile code '"..(code or "nil").."' has no template")
+    self.code = code or error("Tile code = nil")
+    t = config.map.tiles[code] or error("Tile code '"..(code or "nil").."' has no template")
 
     for k,v in pairs(t) do
         self[k] = v

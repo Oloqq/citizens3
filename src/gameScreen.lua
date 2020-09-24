@@ -31,7 +31,6 @@ function MainGame:draw()
 end
 
 function MainGame:keypressed(key)
-	-- love.errhand("co jest")
 	-- setScreen('menu')
 end
 
