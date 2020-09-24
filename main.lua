@@ -7,11 +7,10 @@ config = require("src/config/config")
 stdFontPath = "fonts/verdana.ttf"
 stdFont = love.graphics.newFont(stdFontPath, 24)
 
---this will also include GameScreen globally
-local screenManager = require ("deps/gameScreen")
+local screenManager = require("deps/screenManager")
 setScreen = screenManager.setScreen
 
--- screenManager.addScreen(require("src/mainMenuScreen"), "menu")
+screenManager.addScreen(require("src/mainMenuScreen"), "menu")
 screenManager.addScreen(require("src/gameScreen"), "game", true)
 
 function love.load()
