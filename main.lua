@@ -71,3 +71,9 @@ end
 function love.touchreleased(id, x, y)
 	screenManager.touchreleased(id, x, y)
 end
+
+function math.round(number)
+	local _, decimals = math.modf(number)
+	if decimals < 0.5 then return math.floor(number) end
+	return math.ceil(number)
+end

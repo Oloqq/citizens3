@@ -3,13 +3,14 @@ local MainGame = Screen:extend()
 local config = config
 local love = love
 local gr = love.graphics
+local kb = love.keyboard
 
 local Camera = require("deps/camera")
 local Map = require("src/map/map")
 
 function MainGame:load(args)
 	self.camera = Camera()
-	self.map = Map('maps/maptest')
+	self.map = Map('maps/smol')
 	print('main game loaded')
 end
 
@@ -32,6 +33,10 @@ end
 
 function MainGame:keypressed(key)
 	-- setScreen('menu')
+end
+
+function MainGame:mousemoved(x, y)
+	--
 end
 
 return MainGame
