@@ -7,11 +7,14 @@ local kb = love.keyboard
 
 local Camera = require("deps/camera")
 local Map = require("src/map/map")
+local Unit = require("src/unit")
 
 function MainGame:load(args)
 	self.camera = Camera()
-	self.map = Map('maps/smol')
-	print('main game loaded')
+	self.map = Map('maps/maptest')
+	-- print('main game loaded')
+
+	self.unit = Unit(2, 2)
 end
 
 function MainGame:resume()
@@ -21,11 +24,15 @@ end
 function MainGame:update(dt)
 	self.camera:update(dt)
 	self.map:update(dt)
+	self.unit:update(dt)
 end
 
 function MainGame:draw()
 	self.camera:set()
+
 	self.map:draw()
+	self.unit:draw()
+
 	self.camera:unset()
 
 	-- draw UI here

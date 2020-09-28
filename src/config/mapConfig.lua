@@ -2,7 +2,6 @@ local m = {}
 
 local gr = love.graphics
 
--- m.hexSize = 17
 m.tileSize = 32
 
 m.tiles = {

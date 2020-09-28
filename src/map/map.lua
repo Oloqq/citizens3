@@ -22,6 +22,7 @@ end
 
 function Map:draw()    
     gr.draw(self.tileCanvas)
+    gr.draw(self.debugCanvas)
 end
 
 --return x, y as tiles and true if tile is inside the map
