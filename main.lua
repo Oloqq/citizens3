@@ -11,9 +11,13 @@ local screenManager = require("deps/screenManager")
 setScreen = screenManager.setScreen
 
 screenManager.addScreen(require("src/mainMenuScreen"), "menu")
-screenManager.addScreen(require("src/gameScreen"), "game", true)
+screenManager.addScreen(require("src/gameScreen"), "game")
+
+local Game = require("src/game")
+local game = Game() -- to be modified by main menu
 
 function love.load()
+	setScreen("game", {game = game})
 	-- local MenuManager = require("deps/menu")
 	-- MenuManager.addTextures(config.idTextures)
 end

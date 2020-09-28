@@ -60,7 +60,6 @@ function MapLoader:reloadDebugCanvas()
 	self.debugCanvas = gr.newCanvas(self.tileSize * (self.width+1), 
 	self.tileSize * (self.height+1))
 	if not cd.debugView then return end
-	print('yiy')
 	gr.setCanvas(self.debugCanvas)
 
 	if cd.tileBorders then

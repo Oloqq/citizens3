@@ -62,6 +62,12 @@ function Camera:move(x, y)
 	if y then self.translation.y = self.translation.y - y end
 end
 
+function Camera:undo(x, y)
+	x = (x / self.scale - self.translation.x)
+	y = (y / self.scale - self.translation.y)
+	return x, y
+end
+
 function Camera:set()
 	gr.push()
 	-- rotation should go first
