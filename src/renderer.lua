@@ -15,15 +15,10 @@ function r:new(camera, game)
 	self.toptile = 1
 end
 
-function r:queue(entity, b)
+function r:queue(entity)
 	local id = math.floor(entity.y / 32) - (self.toptile - 1)
  	local layer = self.layers[id]
  	layer[#layer+1] = entity
-
-	if b then
-		print(id)
-	end
---  print(type(layer), #layer, #self.layers[math.floor(entity.y / 32) - (self.toptile - 1)])
 end
 
 function r:draw()
@@ -62,23 +57,17 @@ function r:draw()
 
 	-- Queue building and units for drawing
 	if self.game.unit:isVisible(borderBox) then
-		-- self.game.unit:draw()
-		self:queue(self.game.unit, true)
-		-- print('q1')
+		self:queue(self.game.unit)
 	end
 	if self.game.unit2:isVisible(borderBox) then
-		-- self.game.unit2:draw()
 		self:queue(self.game.unit2)
-		-- print('q2')
 	end
 	
 	-- Draw entities in the correct order
 	self.camera:set()
 	for y,layer in ipairs(self.layers) do
-		-- print('layer', y)
 		for i,v in ipairs(layer) do
 			v:draw()
-			-- print('d')
 		end
 	end
 	self.camera:unset()

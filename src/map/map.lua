@@ -30,6 +30,7 @@ function Map:worldToTile(x, y)
 	return x, y, inside
 end
 
+-- Returns first pixel on the bottom left of the tile
 function Map:tileToWorld(x, y)
 	return x * config.map.tileSize + 1,
 			   (y+1) * config.map.tileSize - 1
