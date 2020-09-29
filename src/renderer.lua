@@ -61,7 +61,7 @@ function r:draw()
 	}
 
 	self.camera:set()
-	if self.game.unti:isVisible(corners) then
+	if self.game.unit:isVisible(corners) then
 		self.game.unit:draw()
 	end
 	self.camera:unset()

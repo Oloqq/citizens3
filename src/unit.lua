@@ -16,14 +16,14 @@ end
 
 function u:draw()
 	-- gr.rectangle("fill", self.x, self.y,  20, 20)
-	gr.draw(self.img, self.x - self.img:getWidth()/2, self.y - self.img:getHeight())
+	gr.draw(self.img, self.x, self.y - self.img:getHeight())
 end
 
 function u:isVisible(corners)
-	if self.x < corners.topleft.x then return false end
+	if self.x + self.img:getWidth() < corners.topleft.x then return false end
 	if self.x > corners.botright.x then return false end
 	if self.y < corners.topleft.y then return false end
-	if self.y > corners.botright.y then return false end
+	if self.y - self.img:getHeight() > corners.botright.y then return false end
 	return true
 end
 
