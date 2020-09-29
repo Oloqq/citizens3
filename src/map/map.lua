@@ -31,8 +31,8 @@ function Map:worldToTile(x, y)
 end
 
 function Map:tileToWorld(x, y)
-	return x * config.map.tileSize,
-			   (y+1) * config.map.tileSize
+	return x * config.map.tileSize + 1,
+			   (y+1) * config.map.tileSize - 1
 end
 
 return Map

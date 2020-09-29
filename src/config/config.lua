@@ -24,5 +24,7 @@ c.debug = c.debug and require("src/config/debug") or {}
 --     c.debug.override(c)
 -- end
 
+-- here temporarily
+c.maxEntityHeight = 2
 
 return c
