@@ -3,10 +3,13 @@ local gr = love.graphics
 local kb = love.keyboard
 local config = config
 local cc = config.camera
+local margin = config.camera.margin
 
 function Camera:new()
 	self.translation = cc.initialTranslation
 	self.scale = cc.initialScale
+	self.width = gr.getWidth() - margin.left - margin.right
+	self.height = gr.getHeight() - margin.top - margin.bottom
 end
 
 function Camera:update(dt)
@@ -62,9 +65,13 @@ function Camera:move(x, y)
 	if y then self.translation.y = self.translation.y - y end
 end
 
-function Camera:undo(x, y)
-	x = (x / self.scale - self.translation.x)
-	y = (y / self.scale - self.translation.y)
+function Camera:getQuad()
+	return {-self.translation.x, -self.translation.y, self.width, self.height}
+end
+
+function Camera:screenToWorld(x, y)
+	x = (x / self.scale - self.translation.x) - margin.left
+	y = (y / self.scale - self.translation.y) - margin.top
 	return x, y
 end
 

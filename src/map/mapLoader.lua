@@ -87,24 +87,6 @@ function MapLoader:reloadDebugCanvas()
 	gr.setCanvas()
 end
 
-function MapLoader:reloadBuildingCanvas()
-	local gr = love.graphics
-
-	self.buildingCanvas = gr.newCanvas(self.tileSize * (self.width+1), 
-	self.tileSize * (self.height+1))
-	 gr.setCanvas(self.buildingCanvas)
-
-	for x=1, self.width do
-		for y=1, self.height do
-			if self.tiles[x][y].structureImg then
-				gr.draw(self.tiles[x][y].structureImg, x*self.tileSize, y*self.tileSize)
-			end
-		end
-	end
-
-	gr.setCanvas()
-end
-
 function MapLoader:reloadCanvas()
 	local gr = love.graphics
 
@@ -117,8 +99,6 @@ function MapLoader:reloadCanvas()
 			gr.draw(self.tiles[x][y].img, x*self.tileSize, y*self.tileSize)
 		end
 	end
-
-	self:reloadBuildingCanvas()
 end
 
 return MapLoader

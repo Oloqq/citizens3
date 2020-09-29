@@ -11,6 +11,14 @@ c.initialScale = 1
 c.mouseMovement = false
 c.mouseMovementMargin = 10 -- area where the cursor moves the camera
 
+-- Margins
+c.margin = {
+	left   = 250,
+	right  = 50,
+	top    = 50,
+	bottom = 50
+}
+
 -- Steering
 c.left    = 'a'
 c.right   = 'd'
