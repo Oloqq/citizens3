@@ -34,9 +34,9 @@ function r:draw()
 	gr.rectangle('line', 0, 0, w, h)
 
 	-- Draw other objects (temp)
-	--[[
-	local tlx, tly = self.camera:screenToWorld(margin.left, margin.top)
-	local brx, bry = self.camera:screenToWorld(margin.left + w, margin.top + h)
+	
+	-- local tlx, tly = self.camera:screenToWorld(margin.left, margin.top)
+	-- local brx, bry = self.camera:screenToWorld(margin.left + w, margin.top + h)
 	local corners = {
 		topleft = {
 			x, y = self.camera:screenToWorld(margin.left, margin.top)
@@ -45,20 +45,20 @@ function r:draw()
 			x, y = self.camera:screenToWorld(margin.left + w, margin.top + h)
 		}
 	}
-	]]
+	
 
-	local tlx, tly = self.camera:screenToWorld(margin.left, margin.top)
-	local brx, bry = self.camera:screenToWorld(margin.left + w, margin.top + h)
-	local corners = {
-		topleft = {
-			x = tlx,
-			y = tly
-		},
-		botright = {
-			x = brx,
-			y = bry
-		}
-	}
+	-- local tlx, tly = self.camera:screenToWorld(margin.left, margin.top)
+	-- local brx, bry = self.camera:screenToWorld(margin.left + w, margin.top + h)
+	-- local corners = {
+	-- 	topleft = {
+	-- 		x = tlx,
+	-- 		y = tly
+	-- 	},
+	-- 	botright = {
+	-- 		x = brx,
+	-- 		y = bry
+	-- 	}
+	-- }
 
 	self.camera:set()
 	if self.game.unit:isVisible(corners) then
