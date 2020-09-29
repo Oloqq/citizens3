@@ -11,7 +11,7 @@ function u:new(x, y)
 end
 
 function u:update(dt)
-
+	--
 end
 
 function u:draw()
