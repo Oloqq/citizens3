@@ -21,23 +21,52 @@ function r:draw()
 	local x, y, w, h = unpack(self.camera:getQuad())
 	self.canvasQuad:setViewport(x, y, w, h)
 
-	-- Draw tile canvas
+	-- Camera culling
 	local margin = config.camera.margin
-	gr.draw(self.game.map.tileCanvas, self.canvasQuad, margin.left, margin.top)
+	gr.push()
+	gr.translate(margin.left, margin.top)
+
+	-- Draw tile canvas
+	gr.draw(self.game.map.tileCanvas, self.canvasQuad, 0, 0)
 
 	-- Outline the map viewport
-	gr.rectangle('line', margin.left, margin.top, w, h)
+	gr.setLineWidth(1)
+	gr.rectangle('line', 0, 0, w, h)
 
 	-- Draw other objects (temp)
+	--[[
 	local tlx, tly = self.camera:screenToWorld(margin.left, margin.top)
 	local brx, bry = self.camera:screenToWorld(margin.left + w, margin.top + h)
+	local corners = {
+		topleft = {
+			x, y = self.camera:screenToWorld(margin.left, margin.top)
+		},
+		botright = {
+			x, y = self.camera:screenToWorld(margin.left + w, margin.top + h)
+		}
+	}
+	]]
+
+	local tlx, tly = self.camera:screenToWorld(margin.left, margin.top)
+	local brx, bry = self.camera:screenToWorld(margin.left + w, margin.top + h)
+	local corners = {
+		topleft = {
+			x = tlx,
+			y = tly
+		},
+		botright = {
+			x = brx,
+			y = bry
+		}
+	}
 
 	self.camera:set()
-	print(self.game.unit.x, tlx)
-	if self.game.unit.x > tlx then
+	if self.game.unti:isVisible(corners) then
 		self.game.unit:draw()
 	end
 	self.camera:unset()
+
+	gr.pop()
 end
 
 return r

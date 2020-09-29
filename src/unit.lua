@@ -19,6 +19,14 @@ function u:draw()
 	gr.draw(self.img, self.x - self.img:getWidth()/2, self.y - self.img:getHeight())
 end
 
+function u:isVisible(corners)
+	if self.x < corners.topleft.x then return false end
+	if self.x > corners.botright.x then return false end
+	if self.y < corners.topleft.y then return false end
+	if self.y > corners.botright.y then return false end
+	return true
+end
+
 function u:test(dt)
 	local speed = 200
 	local kb = love.keyboard
