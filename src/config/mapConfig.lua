@@ -2,18 +2,18 @@ local m = {}
 
 local gr = love.graphics
 
-m.tileSize = 32
+m.tileSize = 24
 
 m.tiles = {
 	grass = {
 		typeStr = "grass",
 		build = true,
-		img = gr.newImage("img/grass.png")
+		img = gr.newImage("img/grass24.png")
 	},
 	water = {
 		typeStr = "water",
 		build = false,
-		img = gr.newImage("img/water.png")
+		img = gr.newImage("img/water24.png")
 	}
 }
 

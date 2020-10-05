@@ -2,9 +2,16 @@ local g = Object:extend()
 local Map = require("src/map/map")
 
 local Unit = require("src/unit")
+local Nation = require("src/nation")
 
 function g:new()
-	self.map = Map('maps/maptest')
+	self.map = Map('data/maps/maptest')
+	self.nations = {}
+	for i=1, self.map.playersCount do
+		self.nations[#self.nations+1] = Nation(self, i, 'asian')
+	end
+	
+	self.buildings = {}
 
 	--TEMP
 	local x, y = self.map:tileToWorld(2, 2)
@@ -18,6 +25,15 @@ function g:update(dt)
 	self.map:update(dt)
 	self.unit:update(dt)
 	self.unit2:update(dt)
+end
+
+function g:place(nationid, x, y, name)
+	print('placing '..name..' for '..nationid..' at '..x..' '..y)
+	local nation = self.nations[nationid]
+	if not nation then return 'nonexistant nation '..nationid end
+	local building = nation.buildings[name]
+	if not building then return 'nonexistent building'..name end
+
 end
 
 function g:select(sx, sy, ex, ey)

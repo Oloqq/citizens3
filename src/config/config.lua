@@ -9,14 +9,9 @@ c.fullscreen = false
 c.musicOn = false --TODO make it work
 c.soundOn = false --TODO ^
 
+c.textures = require("src/config/textures")
 c.map = require("src/config/mapConfig")
 c.camera = require("src/config/camera")
--- c.nations = require("src/config/nations")
--- c.requests = require("src/config/requests")
-c.textures = require("src/config/textures")
--- -- c.buildings is added in MainGame:load
--- c.items = require("src/config/items")
--- c.units = require("src/config/units")
 
 c.debug = c.debug and require("src/config/debug") or {}
 

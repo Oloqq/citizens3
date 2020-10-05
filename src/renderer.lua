@@ -16,7 +16,7 @@ function r:new(camera, game)
 end
 
 function r:queue(entity)
-	local id = math.floor(entity.y / 32) - (self.toptile - 1)
+	local id = math.floor(entity.y / config.map.tileSize) - (self.toptile - 1)
  	local layer = self.layers[id]
  	layer[#layer+1] = entity
 end
